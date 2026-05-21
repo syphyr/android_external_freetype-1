@@ -260,6 +260,8 @@
 
       FT_Vector*  sub = slot->library->lcd_geometry;
 
+      if ( bitmap->width / 3 > 0x7FFF )
+          return FT_THROW( Raster_Overflow );
 
       /* Render 3 separate monochrome bitmaps, shifting the outline.  */
       width /= 3;
@@ -318,6 +320,8 @@
 
       FT_Vector*  sub = slot->library->lcd_geometry;
 
+      if ( bitmap->rows / 3 > 0x7FFF )
+          return FT_THROW( Raster_Overflow );
 
       /* Render 3 separate monochrome bitmaps, shifting the outline. */
       /* Notice that the subpixel geometry vectors are rotated.      */
